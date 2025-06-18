@@ -1,7 +1,13 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
+
+# Access Snowflake connection info from Streamlit secrets
+conn_params = st.secrets["connections"]["snowflake"]
+
+# Create Snowpark session explicitly using secrets
+session = Session.builder.configs(conn_params).create()
 
 # Write directly to the app
 st.title(":cup_with_straw:  Customize Your Smoothie :cup_with_straw: ")
