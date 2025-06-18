@@ -4,7 +4,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 
 # Access Snowflake connection info from Streamlit secrets
-conn_params = st.secrets["connections"]["snowflake"]
+conn_params = st.secrets["snowflake"]
 
 # Create Snowpark session explicitly using secrets
 session = Session.builder.configs(conn_params).create()
